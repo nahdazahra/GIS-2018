@@ -80,6 +80,9 @@ function initialize() {
 		}
 	}
 
+	function showPoints(){
+		if (true) {}
+	}
 	function createInfoWindow(marker, gid, nama){
 		infowindow = new google.maps.InfoWindow();
 		google.maps.event.addListener(marker, 'click', function(){
@@ -95,5 +98,50 @@ function initialize() {
 			btnfindname();
 		}
 	});
+
+	function initMap() {
+		var directionsService = new google.maps.DirectionsService;
+		var directionsDisplay = new google.maps.DirectionsRenderer;
+		var map = new google.maps.Map(document.getElementById('map'), {
+		  zoom: 6,
+		  center: {lat: -7.280582, lng: 112.780800}
+		});
+		directionsDisplay.setMap(map);
+
+		document.getElementById('submit').addEventListener('click', function() {
+		  calculateAndDisplayRoute(directionsService, directionsDisplay);
+		});
+	}
+
+	function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+		var waypts = [];
+		var checkboxArray = document.getElementById('waypoints');
+		for (var i = 0; i < checkboxArray.length; i++) {
+		  if (checkboxArray.options[i].selected) {
+		    waypts.push({
+		      location: checkboxArray[i].value,
+		      stopover: true
+		    });
+		  }
+		}
+
+		directionsService.route({
+		  origin: document.getElementById('start').value,
+		  destination: document.getElementById('end').value,
+		  waypoints: waypts,
+		  optimizeWaypoints: true,
+		  travelMode: 'DRIVING'
+		}, function(response, status) {
+		  if (status === 'OK') {
+		    directionsDisplay.setDirections(response);
+		    var route = response.routes[0];
+		    var summaryPanel = document.getElementById('directions-panel');
+		    summaryPanel.innerHTML = '';
+		  } else {
+		    window.alert('Directions request failed due to ' + status);
+		  }
+		});
+	}
 }
 google.maps.event.addDomListener(window, 'load', initialize);
+

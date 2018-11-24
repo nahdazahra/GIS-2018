@@ -24,19 +24,67 @@
 				        		<input type="text" style="width: 100%" id="inputname" name="">
 				        	</div>
 				        </div>
+				        <div id="listdata" style="background:white; height: auto; overflow: auto;"></div>
+				        <br>
+				        <div>
+				        	<b>Pilih Rute: </b>
+				        	<select id="route">
+							      <option value="1">North Route</option>
+							      <option value="2">South Route</option>
+						    </select>
+				        </div>
+				        <br>
+
+				        <div>
+						    <b>Start:</b>
+						    <input list="start">
+						    	<datalist id="start">
+							      <option value="Informatika"></option>
+							      <option value="Boston, MA">Boston, MA</option>
+							      <option value="New York, NY">New York, NY</option>
+							      <option value="Miami, FL">Miami, FL</option>
+						      	</datalist>
+					        <br>
+					        <br>
+
+					    	<b>Waypoints:</b> <br>
+						    <i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br>
+						    <select multiple id="waypoints">
+						    	
+						    </select>
+
+						    <br>
+						    <br>
+						    <b>End:</b>
+						    <input list="end">
+						    	<datalist id="end">
+							      <option value="Informatika"></option>
+							      <option value="Boston, MA">Boston, MA</option>
+							      <option value="New York, NY">New York, NY</option>
+							      <option value="Miami, FL">Miami, FL</option>
+						      	</datalist>
+						    <br>
+						    <br>
+						      <input type="submit" id="submit">
+						</div>
 			        </div>
-			        <div id="listdata" style="background:white; height: 350px; overflow: auto;"></div>
+			        
+
+
 		       	</div>
 		       	
 		       	<div id="map">
 		        	Map
 		       	</div>
      		</div>
-     	<div class="footer">
-     		<script src="mapss.js"></script>
-       		Footer
-    	</div>
+
+	     	<div class="footer">
+	     		<script src="map1.js"></script>
+	     		<script async defer
+				src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxgh83y8vSI1-91nTOTDiUfQUmWmpcfRU&callback=initMap">
+				</script>
+	       		Footer
+	    	</div>
    		</div>
-    	
- 	</body>
- </html>
+	</body>
+</html>

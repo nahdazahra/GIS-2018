@@ -9,17 +9,17 @@
   padding: 1px 0;
 }
 .body-content{
-  height: 400px;
+  height: auto;
 }
 .wrap .body-content .sidebar{
   background: Gainsboro;
   float: left;
   width: 25%;
-  height: 100%;
+  height: auto;
 }
 .wrap .body-content #map{
   float: left;
-  height: 100%;
+  height: auto;
   width: 74%; 
 }
 .wrap .footer{
