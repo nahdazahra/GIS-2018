@@ -4,6 +4,7 @@
 		<title>SSL</title>
     	<link rel="stylesheet" type="text/css" href="style.css">
     	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAxgh83y8vSI1-91nTOTDiUfQUmWmpcfRU"></script>
+   		<!-- <script src="maps.js"></script> -->
   	</head>
   	<body>
 	    <div class="wrap">
@@ -12,19 +13,30 @@
      		</div>
 	     	<div class="body-content">
 		       	<div class="sidebar">
-			        Sidebar
-			        <div class="checkbox">
-			        	<label><input type="checkbox" id="wisata_tobasa">Tampilkan Titik SSL</label>
+			        <div style="height: 50px">
+				        <div class="checkbox">
+				        	<label><input type="checkbox" id="wisata_tobasa">Tampilkan data Loperman</label>
+				        </div>
+
+				        <div class="cari-nama">
+				        	<input type="submit" value="Cari" style="float: right;" id="btnfind" name="">
+				        	<div style="overflow: hidden; padding-right: .5em;">
+				        		<input type="text" style="width: 100%" id="inputname" name="">
+				        	</div>
+				        </div>
 			        </div>
+			        <div id="listdata" style="background:white; height: 350px; overflow: auto;"></div>
 		       	</div>
+		       	
 		       	<div id="map">
 		        	Map
 		       	</div>
      		</div>
      	<div class="footer">
+     		<script src="mapss.js"></script>
        		Footer
     	</div>
    		</div>
-   		<script src="map.js"></script>
+    	
  	</body>
  </html>
