@@ -3,7 +3,7 @@
 	<head>
 		<title>SSL</title>
     	<link rel="stylesheet" type="text/css" href="style.css">
-    	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAxgh83y8vSI1-91nTOTDiUfQUmWmpcfRU"></script>
    		<!-- <script src="maps.js"></script> -->
   	</head>
@@ -12,12 +12,12 @@
       		<div class="header">     
        			<h1><center>SURABAYA LOPERMAN's LOCATION MAPS</center></h1>
      		</div>
-	     	<div class="body-content" >
+	     	<div class="body-content" style="height: 600px" >
 		       	<div class="sidebar" style="width: 25%; background-color: #fff">
 			        <div class="container">
 			        	<br>
 				        <div class="cari-nama">
-				        	<input type="submit" value="Search" title="Search" style="float: right; width: 24%" id="btnfind" name="" class="btn btn-success form-control">
+				        	<input type="submit" value="Search" style="float: right; width: 24%" id="btnfind" name="" class="btn-success form-control">
 				        	<div style="overflow: hidden; ">
 				        		<input type="text" style="width: 98%;" id="inputname" name="" class="form-control" placeholder="Search route...">
 				        	</div>
@@ -26,52 +26,48 @@
 
 				        <hr>
 
-				        <br>
-				        <div class="checkbox">
-				        	<label><input type="checkbox" id="wisata_tobasa">Tampilkan data Loperman</label>
+				        <div class="form-check">
+				        	<input type="checkbox" class="form-check-input" id="wisata_tobasa">
+				        	<label class="form-check-label">Show All Loperman's Location</label>
 				        </div>
-				        <br>
+
+				        <hr>
+
 				        <div>
-				        	<b>Pilih Rute: </b>
-				        	<select id="route">
+				        	<b>Choose Route : </b>
+				        	<select id="route" class="form-control">
 							      <option value="1">North Route</option>
 							      <option value="2">South Route</option>
 						    </select>
 				        </div>
-				        <br>
 
 				        <div>
+				        	<div style="padding-top: 10px">
 						    <b>Start:</b>
-						    <input list="start" id="starts">
+						    <input list="start" id="starts" class="form-control">
 						    	<datalist id="start">
-							      
-							      
 						      	</datalist>
-					        <br>
-					        <br>
+						    </div>
 
-					    	<b>Waypoints:</b> <br>
-						    <i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br>
-						    <select multiple id="waypoints">
-						    	
-						    </select>
+						    <div style="padding-top: 10px">
+						    	<b>Waypoints:</b> <br>
+							    <i>(Ctrl+Click for multiple selection)</i> <br>
+							    <select multiple id="waypoints" class="form-control">
+							    </select>
+						    </div>
 
-						    <br>
-						    <br>
+						    <div style="padding-top: 10px">
 						    <b>End:</b>
-						    <input list="end" id="ends">
-						    	<datalist id="end">
-							      
-							      
+						    <input list="end" id="ends" class="form-control">
+						    	<datalist id="end">							      
 						      	</datalist>
-						    <br>
-						    <br>
-						      <input type="submit" id="submit">
+						    </div>
+
+						    <div style="padding-top: 15px; float: right;">
+						    	<input type="submit" id="submit" class="btn-primary form-control" style="width: 100%">
+						    </div>
 						</div>
 			        </div>
-			        
-
-
 		       	</div>
 		       	
 		       	<div id="map">
@@ -79,12 +75,12 @@
 		       	</div>
      		</div>
      		<div id="latlong">
-     			<input id="Informatika" type="hidden" data-lat="-7.2795792" data-long="112.7952066">
+     			<!-- <input id="Informatika" type="hidden" data-lat="-7.2795792" data-long="112.7952066"> -->
+     			<input id="Informatika" type="hidden" data-lat="-7.279800" data-long="112.797674">
      		</div>
 
 	     	<div class="footer">
-	     		<script src="js/bootstrap.min.js"></script>
-	     		<script src="map1.js"></script>
+	     		<script type="text/javascript" src="js/bootstrap.js"></script>
 	     		<!-- <script async defer
 				src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxgh83y8vSI1-91nTOTDiUfQUmWmpcfRU&callback=initMap">
 				</script> -->
@@ -222,9 +218,10 @@
 								btnfindname();
 							}
 						});
-							var directionsService = new google.maps.DirectionsService;
-							var directionsDisplay = new google.maps.DirectionsRenderer;
-							directionsDisplay.setMap(map);
+
+						var directionsService = new google.maps.DirectionsService;
+						var directionsDisplay = new google.maps.DirectionsRenderer;
+						directionsDisplay.setMap(map);
 
 						document.getElementById('submit').addEventListener('click', function() {
 							// directionsDisplay.setMap(null);
