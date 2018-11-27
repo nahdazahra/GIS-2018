@@ -4,26 +4,27 @@
   margin: 0 auto;
 }
 .wrap .header{
-  background: azure;
+  /*background: azure;*/
   border-bottom: solid 1px;
   padding: 1px 0;
 }
 .body-content{
-  height: 560px;
+  height: 100%;
+  font-family: sans-serif;
 }
 .wrap .body-content .sidebar{
-  background: Gainsboro;
+  /*background-color: white;*/
   float: left;
-  width: 25%;
+  width: 40%;
   height: 100%;
 }
 .wrap .body-content #map{
   float: left;
   height: 100%;
-  width: 74%; 
+  width: 60%; 
 }
 .wrap .footer{
-  background: FloralWhite;
+  /*background: FloralWhite;*/
   border-top: solid 1px;
   padding: 1px 0;
 }

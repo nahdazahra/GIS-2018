@@ -3,28 +3,33 @@
 	<head>
 		<title>SSL</title>
     	<link rel="stylesheet" type="text/css" href="style.css">
+    	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAxgh83y8vSI1-91nTOTDiUfQUmWmpcfRU"></script>
    		<!-- <script src="maps.js"></script> -->
   	</head>
   	<body>
 	    <div class="wrap">
       		<div class="header">     
-       			<h1></h1>
+       			<h1><center>SURABAYA LOPERMAN's LOCATION MAPS</center></h1>
      		</div>
-	     	<div class="body-content">
-		       	<div class="sidebar">
-			        <div style="height: 50px">
-				        <div class="checkbox">
-				        	<label><input type="checkbox" id="wisata_tobasa">Tampilkan data Loperman</label>
-				        </div>
-
+	     	<div class="body-content" >
+		       	<div class="sidebar" style="width: 25%; background-color: #fff">
+			        <div class="container">
+			        	<br>
 				        <div class="cari-nama">
-				        	<input type="submit" value="Cari" style="float: right;" id="btnfind" name="">
-				        	<div style="overflow: hidden; padding-right: .5em;">
-				        		<input type="text" style="width: 100%" id="inputname" name="">
+				        	<input type="submit" value="Search" title="Search" style="float: right; width: 24%" id="btnfind" name="" class="btn btn-success form-control">
+				        	<div style="overflow: hidden; ">
+				        		<input type="text" style="width: 98%;" id="inputname" name="" class="form-control" placeholder="Search route...">
 				        	</div>
 				        </div>
 				        <div id="listdata" style="background:white; height: auto; overflow: auto;"></div>
+
+				        <hr>
+
+				        <br>
+				        <div class="checkbox">
+				        	<label><input type="checkbox" id="wisata_tobasa">Tampilkan data Loperman</label>
+				        </div>
 				        <br>
 				        <div>
 				        	<b>Pilih Rute: </b>
@@ -74,10 +79,11 @@
 		       	</div>
      		</div>
      		<div id="latlong">
-     			
+     			<input id="Informatika" type="hidden" data-lat="-7.2795792" data-long="112.7952066">
      		</div>
 
 	     	<div class="footer">
+	     		<script src="js/bootstrap.min.js"></script>
 	     		<script src="map1.js"></script>
 	     		<!-- <script async defer
 				src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxgh83y8vSI1-91nTOTDiUfQUmWmpcfRU&callback=initMap">
@@ -95,7 +101,7 @@
 								$('#start').empty();
 								$('#waypoints').empty();
 								$('#end').empty();
-								$('#latlong').empty();
+								$('#latlong').not(':first').empty();
 
 								$('#start').append('<option value="Informatika">Informatika</option>');
 								$('#end').append('<option value="Informatika">Informatika</option>');
@@ -232,9 +238,11 @@
 							var checkboxArray = document.getElementById('waypoints');
 							for (var i = 0; i < checkboxArray.length; i++) {
 							  if (checkboxArray.options[i].selected) {
-							  	var poin = checkboxArray[i].getAttribute('data-lat')+', '+checkboxArray[i].getAttribute('data-long')
+							  	var poin1 = checkboxArray[i].getAttribute('data-lat');
+							  	var poin2 = checkboxArray[i].getAttribute('data-long');
+							  	// console.log(poin);
 							    waypts.push({
-							      location: new google.maps.LatLng(poin),
+							      location: new google.maps.LatLng(poin1, poin2),
 							      stopover: true
 							    });
 							  }
