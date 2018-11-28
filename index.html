@@ -8,18 +8,22 @@
    		<!-- <script src="maps.js"></script> -->
   	</head>
   	<body>
-	    <div class="wrap">
+	    <div class="wrap" >
       		<div class="header">     
        			<h1><center>SURABAYA LOPERMAN's LOCATION MAPS</center></h1>
      		</div>
-	     	<div class="body-content" style="height: 600px" >
+	     	<div class="body-content" style="height: 800px" >
 		       	<div class="sidebar" style="width: 25%; background-color: #fff">
 			        <div class="container">
 			        	<br>
 				        <div class="cari-nama">
 				        	<input type="submit" value="Search" style="float: right; width: 24%" id="btnfind" name="" class="btn-success form-control">
 				        	<div style="overflow: hidden; ">
-				        		<input type="text" style="width: 98%;" id="inputname" name="" class="form-control" placeholder="Search route...">
+				        		<input type="text" style="width: 98%;" list="find" id="inputname" name="" class="form-control" placeholder="Search location...">
+				        		<datalist id="find">
+				        			<option value="North Area"></option>
+				        			<option value="South Area"></option>
+						      	</datalist>
 				        	</div>
 				        </div>
 				        <div id="listdata" style="background:white; height: auto; overflow: auto;"></div>
@@ -70,7 +74,7 @@
 			        </div>
 		       	</div>
 		       	
-		       	<div id="map">
+		       	<div id="map" style="width: 75%;">
 		        	Map
 		       	</div>
      		</div>
@@ -165,7 +169,7 @@
 							resultmarker = [];
 
 							if(inputname.value==''){
-								alert("Isi kolom pencarian!");
+								alert("The column should not be blank!");
 							}
 						
 							else{
@@ -176,7 +180,7 @@
 									if (this.readyState == 4 && this.status == 200) {
 										var arr = JSON.parse(this.responseText);
 										if(arr == null){
-											alert('Data Tidak Ada');
+											alert('Data does not exist!');
 											return;
 										}
 										var i;
@@ -191,7 +195,7 @@
 												position: newcenter, map: map, animation: google.maps.Animation.DROP
 											});
 											resultmarker.push(marker);
-											map.setZoom(9);
+											map.setZoom(13);
 											map.setCenter(newcenter);
 											createInfoWindow(marker, gid, nama);
 											document.getElementById("listdata").innerHTML += "<li id="+gid+" onclick='showdetail(this.id)'>"+nama+"</li>";
